@@ -1,6 +1,6 @@
 <?php
 
-namespace KaanTanis\Facades\September;
+namespace KaanTanis\September\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

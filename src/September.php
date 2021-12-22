@@ -3,6 +3,7 @@
 namespace KaanTanis\September;
 
 use Illuminate\Support\Facades\Facade;
+use KaanTanis\Models\September\September as Log;
 
 class September extends Facade
 {
@@ -14,7 +15,7 @@ class September extends Facade
     private $ip;
     private $userAgent;
 
-    public function userId($userId): static
+    public function user($userId = null): static
     {
         if (! $userId)
             $userId = auth()->id() ?? 'No login';
@@ -35,27 +36,47 @@ class September extends Facade
         return $this;
     }
 
-    public function url($url): static
+    public function url($url = null): static
     {
-        $this->url = request()->url();
+        $this->url = $url ?? request()->url();
         return $this;
     }
 
-    public function method($method): static
+    public function method($method = null): static
     {
-        $this->method = request()->method();
+        $this->method = $method ?? request()->method();
         return $this;
     }
 
-    public function ip($ip): static
+    public function ip($ip = null): static
     {
-        $this->ip = request()->ip();
+        $this->ip = $ip ?? request()->ip();
         return $this;
     }
 
-    public function userAgent($userAgent): static
+    public function userAgent($userAgent = null): static
     {
-        $this->userAgent = request()->userAgent();
+        $this->userAgent = $userAgent ?? request()->userAgent();
         return $this;
+    }
+
+    public function save($subject = null)
+    {
+        $subject = $this->subject ?? $subject;
+
+
+        // todo: general check code quality
+        $this->subject($subject);
+        $this->url($this->url);
+        $this->method($this->method);
+        $this->ip($this->ip);
+        $this->user($this->userId);
+
+        dd($this);
+
+        // Save log to database
+        Log::create([
+
+        ]);
     }
 }
