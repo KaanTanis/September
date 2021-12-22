@@ -1,0 +1,28 @@
+{
+    "name": "kaantanis/september",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "KaanTanis\\September\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "KaanTanis\\September\\SeptemberServiceProvider"
+            ],
+            "aliases": {
+                "September": "KaanTanis\\September\\Facades\\September"
+            }
+        }
+    },
+    "authors": [
+        {
+            "name": "KaanTanis",
+            "email": "kt@kaantanis.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
