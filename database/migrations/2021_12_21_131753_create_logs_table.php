@@ -22,6 +22,7 @@ class CreateLogsTable extends Migration
             $table->string('method')->nullable();
             $table->ipAddress('ip')->nullable();
             $table->string('user_agent')->nullable();
+            $table->integer('log_level')->index();
             $table->timestamps();
         });
     }

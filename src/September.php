@@ -2,10 +2,9 @@
 
 namespace KaanTanis\September;
 
-use Illuminate\Support\Facades\Facade;
 use KaanTanis\Models\September\September as Log;
 
-class September extends Facade
+class September extends Level
 {
     private $subject;
     private $userId;
@@ -60,17 +59,22 @@ class September extends Facade
         return $this;
     }
 
+    public function level($level = null)
+    {
+        $this->level = $level ?? $this->level;
+        return $this;
+    }
+
     public function save($subject = null)
     {
-        $subject = $this->subject ?? $subject;
+        // todo: Genel kod kalitesi kontrol edilecek ve Log type özelliği eklenecek
 
-
-        // todo: general check code quality
-        $this->subject($subject);
+        $this->subject($this->subject ?? $subject);
         $this->url($this->url);
         $this->method($this->method);
         $this->ip($this->ip);
         $this->user($this->userId);
+        $this->level($this->level);
 
         dd($this);
 
