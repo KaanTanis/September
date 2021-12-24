@@ -6,7 +6,8 @@ composer require kaantanis/september
 
 # Usage
 ```php
-September::subject('Log title')
+September::warning() // info|warning|danger - default is debug
+    ->subject('Log title')
     ->user($user_id) // Delete this method for current user
     ->details($array) // Nullable, delete the method if you won't use it
     ->url($url) //  Delete this method for current url

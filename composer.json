@@ -11,10 +11,7 @@
         "laravel": {
             "providers": [
                 "KaanTanis\\September\\SeptemberServiceProvider"
-            ],
-            "aliases": {
-                "September": "KaanTanis\\September\\Facades\\September"
-            }
+            ]
         }
     },
     "authors": [
